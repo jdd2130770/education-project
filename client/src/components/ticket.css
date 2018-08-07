@@ -1,0 +1,18 @@
+.ticket{
+    padding:8px;
+}
+
+.ticketId{
+    text-decoration:underline; 
+    color:gold;
+    float:right;
+}
+
+.ticketRequirement{
+    color:#909090;
+}
+
+.ticketFooter{
+    background-color:gray; 
+
+}
