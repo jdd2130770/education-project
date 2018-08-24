@@ -1,10 +1,25 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
+const {poolPromise} = require('./dbUtil');
 const app = express();
-const port = process.env.PORT || 5000;
+app.use(bodyParser.json());
+const port = process.env.PORT || 5000
 
-app.get('/api/hello', (req, res) => {
-    res.send({ express: 'Hello From Express' });
+var registration = require('./nodeApi/api/registration');
+
+app.use('/api/registration',registration);
+
+
+
+
+app.get('/api/hello', async (req, res) => {
+
+
+
+
+
+
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

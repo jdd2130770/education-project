@@ -4,14 +4,25 @@ import './App.css';
 
 class App extends Component {
 
+    constructor(props) {
+        super(props); 
+
+        this.callApi = this.callApi.bind(this);
+    }
+
     state = {
-        response: ''
+        response: 'loading....'
     };
 
     componentDidMount() {
-        this.callApi()
-            .then(res => this.setState({ response: res.express }))
-            .catch(err => console.log(err));
+        this.callApi().then((res) => {
+                console.log('the res is ', res);
+         
+               var studentList = res.recordset.map((student, index) => (
+                   <p>Hello, {student.FirstName} {student.LastName} from {student.City} in grade {student.Grade}</p>
+                ));
+               this.setState({response:studentList});
+            }).catch(err => console.log(err));
     }
 
     callApi = async () => {
@@ -19,7 +30,6 @@ class App extends Component {
         const body = await response.json();
 
         if (response.status !== 200) throw Error(body.message);
-
         return body;
     };
 
