@@ -4,3 +4,18 @@
   margin-left:auto;
   margin-right:auto;
 }
+
+.form-group{
+  position:relative;
+  margin-top:25px;
+  margin-bottom:25px;
+}
+.formErrors{
+  font-size:9pt;
+  color:red;
+  position:absolute;
+}
+
+.formSubmitBtn{
+  margin-top:10px;
+}
