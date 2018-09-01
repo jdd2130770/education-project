@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const {poolPromise} = require('./dbUtil');
 const app = express();
 app.use(bodyParser.json());
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 5000;
 
 var registration = require('./nodeApi/api/registration');
 

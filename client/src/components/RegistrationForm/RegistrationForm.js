@@ -128,7 +128,6 @@ class RegistrationForm extends Component {
           <h3>Parental Sign up Form</h3>
 
           <form>
-
               <div class="form-group">
                   <label htmlFor="firstName">First Name</label>
                   <input type="text"  className="form-control"  value ={this.state.firstName}  id="firstName" onChange={this.handleInputChange}aria-describedby="emailHelp" placeholder="Enter first name"/>
