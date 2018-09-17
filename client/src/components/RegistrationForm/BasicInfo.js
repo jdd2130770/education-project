@@ -1,26 +1,32 @@
 import React, { Component } from 'react';
 import './RegistrationForm.css';
 
-class FormPart1 extends Component {
+class BasicInfo extends Component {
 
     constructor(props) {
         super(props);
 
-        this.callApi = this.callApi.bind(this);
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.saveAndContinue = this.saveAndContinue.bind(this);
+        this.state = {
+            'firstName':'',
+            'lastName':'',
+            'emailAddress':'',
+            'city':'',
+            'state':'',
+        };
     }
 
-    state = {
-        'firstName':this.state.firstName,
-        'lastName':this.state.lastName,
-        'emailAddress':this.state.emailAddress,
-        'city':this.state.city,
-        'state':this.state.state,
-    };
+
 
     componentDidMount() {
 
     }
 
+    handleInputChange(e){
+        this.setState({[e.target.id]:e.target.value});
+    }
     saveAndContinue (e){
         e.preventDefault();
         var data={
@@ -39,6 +45,7 @@ class FormPart1 extends Component {
     render() {
         return (
             <div>
+
               <div class="form-group">
                 <label htmlFor="firstName">First Name</label>
                 <input type="text"  className="form-control"  value ={this.state.firstName}  id="firstName" onChange={this.handleInputChange}aria-describedby="emailHelp" placeholder="Enter first name"/>
@@ -70,4 +77,4 @@ class FormPart1 extends Component {
     }
 }
 
-export default FormPart1;
+export default BasicInfo;
