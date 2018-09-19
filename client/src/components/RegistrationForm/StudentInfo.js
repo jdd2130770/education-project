@@ -115,7 +115,13 @@ class StudentInfo extends Component {
                     </div>
                     <div class="form-group">
                         <label htmlFor="student2Grade">Grade</label>
-                        <input type="text" className="form-control" value ={this.state.student2Grade} onChange={this.handleInputChange} id="student2Grade" aria-describedby="emailHelp" placeholder="Grade"/>
+                        <select id="student2Grade" class="form-control" onChange={this.handleInputChange}>
+                            <option disabled selected>Select Grade</option>
+                            <option>9th</option>
+                            <option>10th</option>
+                            <option>11th</option>
+                            <option>12th</option>
+                        </select>
                         <span className="formErrors">{this.state.cityErrorMessage}</span>
                     </div>
                     <div class="form-group">

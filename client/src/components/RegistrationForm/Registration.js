@@ -3,7 +3,7 @@ import './RegistrationForm.css';
 import BasicInfo from './BasicInfo.js';
 import StudentInfo from  './StudentInfo.js';
 import StudentCourses from './StudentCourses';
-
+import BillingInfo from './BillingInfo';
 class Registration extends Component {
 
 
@@ -52,7 +52,11 @@ class Registration extends Component {
                     saveValues={this.saveValues}
                 />
             case 4:
-            return <div></div>
+                <BillingInfo
+                    fieldValues={this.state.fieldValues}
+                    previousStep={this.previousStep}
+                    saveValues={this.saveValues}
+                />
         }
     }
 
