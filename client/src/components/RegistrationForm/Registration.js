@@ -52,7 +52,7 @@ class Registration extends Component {
                     saveValues={this.saveValues}
                 />
             case 4:
-                <BillingInfo
+                return <BillingInfo
                     fieldValues={this.state.fieldValues}
                     previousStep={this.previousStep}
                     saveValues={this.saveValues}
@@ -77,6 +77,7 @@ class Registration extends Component {
         this.setState({
             step : this.state.step + 1
         })
+        window.scrollTo(0,0);
     }
 
 // Same as nextStep, but decrementing

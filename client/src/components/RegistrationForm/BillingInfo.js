@@ -10,8 +10,8 @@ class BillingInfo extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.saveAndContinue = this.saveAndContinue.bind(this);
         this.state = {
-            'firstName':'',
-            'lastName':'',
+            'billingFirstName':'',
+            'billingLastName':'',
             'billingAddress1':'',
             'billingAddress2':'',
             'city':'',
@@ -35,8 +35,8 @@ class BillingInfo extends Component {
     saveAndContinue (e){
         e.preventDefault();
         var data={
-            'firstName':this.state.firstName,
-            'lastName':this.state.lastName,
+            'billingFirstName':this.state.billingFirstName,
+            'billingLastName':this.state.billingLastName,
             'billingAddress1':this.state.billingAddress1,
             'billingAddress2':this.state.billingAddress2,
             'city':this.state.city,
@@ -54,15 +54,15 @@ class BillingInfo extends Component {
     render() {
         return (
             <div>
-
+                <h3>Billing Info</h3>
                 <div class="form-group">
                     <label htmlFor="firstName">First Name</label>
-                    <input type="text"  className="form-control"  value ={this.state.firstName}  id="firstName" onChange={this.handleInputChange}aria-describedby="emailHelp" placeholder="Enter first name"/>
+                    <input type="text"  className="form-control"  value ={this.state.billingFirstName}  id="billingFirstName" onChange={this.handleInputChange}aria-describedby="emailHelp" placeholder="Enter first name"/>
                     <span className="formErrors">{this.state.firstNameErrorMessage}</span>
                 </div>
                 <div class="form-group">
                     <label htmlFor="lastName">Last Name</label>
-                    <input type="text" className="form-control" value ={this.state.lastName}  onChange={this.handleInputChange}  id="lastName" aria-describedby="emailHelp" placeholder="Enter last name"/>
+                    <input type="text" className="form-control" value ={this.state.billingLastName}  onChange={this.handleInputChange}  id="billingLastName" aria-describedby="emailHelp" placeholder="Enter last name"/>
                     <span className="formErrors">{this.state.lastNameErrorMessage}</span>
                 </div>
                 <div class="form-group">
