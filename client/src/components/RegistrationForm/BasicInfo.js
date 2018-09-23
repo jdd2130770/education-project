@@ -13,8 +13,8 @@ class BasicInfo extends Component {
             'firstName':'',
             'lastName':'',
             'emailAddress':'',
-            'city':'',
-            'state':'',
+            'password1':'',
+            'password2':''
         };
     }
 
@@ -33,8 +33,7 @@ class BasicInfo extends Component {
             'firstName':this.state.firstName,
             'lastName':this.state.lastName,
             'emailAddress':this.state.emailAddress,
-            'city':this.state.city,
-            'state':this.state.state,
+            'password1':this.state.password1,
         }
 
         this.props.saveValues(data);
@@ -47,12 +46,12 @@ class BasicInfo extends Component {
             <div>
 
               <div class="form-group">
-                <label htmlFor="firstName">First Name</label>
+                <label htmlFor="firstName">Parent First Name</label>
                 <input type="text"  className="form-control"  value ={this.state.firstName}  id="firstName" onChange={this.handleInputChange}aria-describedby="emailHelp" placeholder="Enter first name"/>
                 <span className="formErrors">{this.state.firstNameErrorMessage}</span>
               </div>
               <div class="form-group">
-                  <label htmlFor="lastName">Last Name</label>
+                  <label htmlFor="lastName">Parent Last Name</label>
                   <input type="text" className="form-control" value ={this.state.lastName}  onChange={this.handleInputChange}  id="lastName" aria-describedby="emailHelp" placeholder="Enter last name"/>
                   <span className="formErrors">{this.state.lastNameErrorMessage}</span>
               </div>
@@ -61,16 +60,16 @@ class BasicInfo extends Component {
                  <input type="email" className="form-control" value ={this.state.emailAddress} onChange={this.handleInputChange} id="emailAddress" aria-describedby="emailHelp" placeholder="Enter email"/>
                  <span className="formErrors">{this.state.emailAddressErrorMessage}</span>
               </div>
-              <div class="form-group">
-                  <label htmlFor="exampleInputEmail1">City</label>
-                  <input type="text" className="form-control" value ={this.state.city} onChange={this.handleInputChange} id="city" aria-describedby="emailHelp" placeholder="Enter email"/>
-                  <span className="formErrors">{this.state.cityErrorMessage}</span>
-               </div>
-               <div class="form-group">
-                  <label htmlFor="exampleInputEmail1">State</label>
-                  <input type="text" className="form-control" value ={this.state.state} onChange={this.handleInputChange} id="state" aria-describedby="emailHelp" placeholder="Enter email"/>
-                  <span className="formErrors">{this.state.stateErrorMessage}</span>
-               </div>
+                <div class="form-group">
+                    <label htmlFor="emailAddress">Password</label>
+                    <input type="password" className="form-control" value ={this.state.password1} onChange={this.handleInputChange} id="password1" aria-describedby="emailHelp" placeholder="Enter password"/>
+                    <span className="formErrors">{this.state.emailAddressErrorMessage}</span>
+                </div>
+                <div class="form-group">
+                    <label htmlFor="emailAddress">Confirm Password</label>
+                    <input type="password" className="form-control" value ={this.state.password2} onChange={this.handleInputChange} id="password2" aria-describedby="emailHelp" placeholder="Confirm Password"/>
+                    <span className="formErrors">{this.state.emailAddressErrorMessage}</span>
+                </div>
                 <button onClick={this.saveAndContinue} className="btn-lg btn-primary">Save and Continue</button>
             </div>
         );
