@@ -15,12 +15,16 @@ class StudentInfo extends Component {
             'student1UserName':'',
             'student1Grade':'',
             'student1DateOfBirth':'',
+            'student1Password':'',
+            'student1ConfirmPassword':'',
 
             'student2FirstName':'',
             'student2LastName':'',
             'student2UserName':'',
             'student2Grade':'',
             'student2DateOfBirth':'',
+            'student2Password':'',
+            'student2ConfirmPassword':''
         }
     }
 
@@ -41,14 +45,12 @@ class StudentInfo extends Component {
             'student1LastName':this.state.student1LastName,
             'student1UserName':this.state.student1UserName,
             'student1Password':this.state.student1Password,
-            'student1ConfirmPassword':this.state.student1ConfirmPassword,
             'student1Grade':this.state.student1Grade,
             'student1DateOfBirth':this.state.student1DateOfBirth,
             'student2FirstName':this.state.student2FirstName,
             'student2LastName':this.state.student2LastName,
             'student2UserName':this.state.student2UserName,
             'student2Password':this.state.student2Password,
-            'student2ConfirmPassword':this.state.student2ConfirmPassword,
             'student2Grade':this.state.student2Grade,
             'student2DateOfBirth':this.state.student2DateOfBirth,
         }
