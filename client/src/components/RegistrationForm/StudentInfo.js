@@ -83,12 +83,12 @@ class StudentInfo extends Component {
                 </div>
                     <div class="form-group">
                         <label htmlFor="emailAddress">Password</label>
-                        <input type="password" className="form-control" value ={this.state.student1Password} onChange={this.handleInputChange} id="password1" aria-describedby="emailHelp" placeholder="Enter password"/>
+                        <input type="password" className="form-control" value ={this.state.student1Password} onChange={this.handleInputChange} id="student1Password" aria-describedby="emailHelp" placeholder="Enter password"/>
                         <span className="formErrors">{this.state.emailAddressErrorMessage}</span>
                     </div>
                     <div class="form-group">
                         <label htmlFor="emailAddress">Confirm Password</label>
-                        <input type="password" className="form-control" value ={this.state.student1ConfirmPassword} onChange={this.handleInputChange} id="password2" aria-describedby="emailHelp" placeholder="Confirm Password"/>
+                        <input type="password" className="form-control" value ={this.state.student1ConfirmPassword} onChange={this.handleInputChange} id="student1ConfirmPassword" aria-describedby="emailHelp" placeholder="Confirm Password"/>
                         <span className="formErrors">{this.state.emailAddressErrorMessage}</span>
                     </div>
                 <div class="form-group">
@@ -129,12 +129,14 @@ class StudentInfo extends Component {
                     </div>
                     <div class="form-group">
                         <label htmlFor="emailAddress">Password</label>
-                        <input type="password" className="form-control" value ={this.state.student2Password} onChange={this.handleInputChange} id="password1" aria-describedby="emailHelp" placeholder="Enter password"/>
+                        <input type="password" className="form-control" value ={this.state.student2Password} onChange={this.handleInputChange} id="student2Password" aria-describedby="emailHelp" placeholder="Enter password"/>
                         <span className="formErrors">{this.state.emailAddressErrorMessage}</span>
                     </div>
                     <div class="form-group">
                         <label htmlFor="emailAddress">Confirm Password</label>
-                        <input type="password" className="form-control" value ={this.state.student2ConfirmPassword} onChange={this.handleInputChange} id="password2" aria-describedby="emailHelp" placeholder="Confirm Password"/>
+                        <input type="password" className="form-control" value ={this.state.student2ConfirmPassword} onChange={this.handleInputChange} id="student2ConfirmPassword
+
+                        " aria-describedby="emailHelp" placeholder="Confirm Password"/>
                         <span className="formErrors">{this.state.emailAddressErrorMessage}</span>
                     </div>
                     <div class="form-group">

@@ -64,11 +64,14 @@ class Registration extends Component {
             // Remember, `fieldValues` is set at the top of this file, we are simply appending
             // to and overriding keys in `fieldValues` with the `fields` with Object.assign
             // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
-            console.log(this.state);
+            var currentStep = this.state.step;
             var fieldValues = this.state.fieldValues;
              fieldValues = Object.assign({}, fieldValues, fields);
             this.setState({fieldValues:fieldValues},()=>{
                 console.log('the field values are ',this.state.fieldValues);
+                if(this.state.fieldValues.formComplete==true){
+                    /*at this point we want to move data into the database*/
+                }
             });
 
     }

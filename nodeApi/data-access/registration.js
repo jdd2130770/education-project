@@ -1,4 +1,24 @@
-const {poolPromise} = require('../../dbUtil');
+const {sql,poolPromise} = require('../../dbUtil');
+
+exports.submitRegistrationForm = async data =>{
+
+    //insert into parent table
+    const pool = await poolPromise;
+    const ps = new sql.PreparedStatement(pool);
+
+    ps.input('storeHash', sql.VarChar);
+    await ps.prepare('SELECT * FROM testimonialApp WHERE storeHash = @storeHash ');
+
+
+
+    const res = await ps.execute({storeHash:hash});
+
+    await ps.unprepare();
+
+
+    return res;
+}
+
 exports.addParent = async parentInfo =>{
 
     console.log('the info in the data layer is ',parentInfo);

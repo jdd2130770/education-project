@@ -45,6 +45,7 @@ class BillingInfo extends Component {
             'creditCard':this.state.creditCard,
             'expirationDate':this.state.expirationDate,
             'securityCode':this.state.securityCode,
+            'formComplete':true
         }
 
         this.props.saveValues(data);
