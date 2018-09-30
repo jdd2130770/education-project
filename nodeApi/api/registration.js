@@ -11,4 +11,13 @@ router.post('/parent', async(req,res,next)=>{
 
 });
 
+router.post('/submitRegistrationForm', async(req,res,next)=>{
+
+    console.log('the form data is  ',req.body);
+
+    regController.submitRegistrationForm(req.body);
+    res.send('form submitted');
+
+});
+
 module.exports = router;

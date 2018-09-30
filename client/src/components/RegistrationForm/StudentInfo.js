@@ -40,22 +40,31 @@ class StudentInfo extends Component {
     saveAndContinue (e){
         e.preventDefault();
         console.log(this.state);
-        var data={
-            'student1FirstName':this.state.student1FirstName,
-            'student1LastName':this.state.student1LastName,
-            'student1UserName':this.state.student1UserName,
-            'student1Password':this.state.student1Password,
-            'student1Grade':this.state.student1Grade,
-            'student1DateOfBirth':this.state.student1DateOfBirth,
-            'student2FirstName':this.state.student2FirstName,
-            'student2LastName':this.state.student2LastName,
-            'student2UserName':this.state.student2UserName,
-            'student2Password':this.state.student2Password,
-            'student2Grade':this.state.student2Grade,
-            'student2DateOfBirth':this.state.student2DateOfBirth,
+        var studentObj ={
+            'students':[]
+        }
+        var student1={
+            'studentFirstName':this.state.student1FirstName,
+            'studentLastName':this.state.student1LastName,
+            'studentUserName':this.state.student1UserName,
+            'studentPassword':this.state.student1Password,
+            'studentGrade':this.state.student1Grade,
+            'studentDateOfBirth':this.state.student1DateOfBirth
         }
 
-        this.props.saveValues(data);
+        var student2 ={
+            'studentFirstName':this.state.student2FirstName,
+            'studentLastName':this.state.student2LastName,
+            'studentUserName':this.state.student2UserName,
+            'studentPassword':this.state.student2Password,
+            'studentGrade':this.state.student2Grade,
+            'studentDateOfBirth':this.state.student2DateOfBirth,
+        }
+
+        studentObj.students.push(student1);
+        studentObj.students.push(student2);
+
+        this.props.saveValues(studentObj);
         this.props.nextStep();
     }
 

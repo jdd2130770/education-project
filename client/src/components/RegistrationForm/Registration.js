@@ -67,10 +67,20 @@ class Registration extends Component {
             var currentStep = this.state.step;
             var fieldValues = this.state.fieldValues;
              fieldValues = Object.assign({}, fieldValues, fields);
-            this.setState({fieldValues:fieldValues},()=>{
+            this.setState({fieldValues:fieldValues},async () =>{
                 console.log('the field values are ',this.state.fieldValues);
                 if(this.state.fieldValues.formComplete==true){
                     /*at this point we want to move data into the database*/
+                    var params = this.state.fieldValues;
+
+                    const response = await fetch("api/registration/submitRegistrationForm",{
+                        method:'post',
+                        body: JSON.stringify(params),
+                        headers:{
+                            'content-type':'application/json'
+                        }
+                    });
+                    console.log('the response is ',response);
                 }
             });
 
