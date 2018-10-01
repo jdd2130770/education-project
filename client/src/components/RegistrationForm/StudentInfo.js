@@ -143,9 +143,7 @@ class StudentInfo extends Component {
                     </div>
                     <div class="form-group">
                         <label htmlFor="emailAddress">Confirm Password</label>
-                        <input type="password" className="form-control" value ={this.state.student2ConfirmPassword} onChange={this.handleInputChange} id="student2ConfirmPassword
-
-                        " aria-describedby="emailHelp" placeholder="Confirm Password"/>
+                        <input type="password" className="form-control" value ={this.state.student2ConfirmPassword} onChange={this.handleInputChange} id="student2ConfirmPassword" aria-describedby="emailHelp" placeholder="Confirm Password"/>
                         <span className="formErrors">{this.state.emailAddressErrorMessage}</span>
                     </div>
                     <div class="form-group">

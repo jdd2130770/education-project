@@ -20,7 +20,7 @@ exports.submitRegistrationForm = async data =>{
     ps.input('password', sql.VarChar);
 
     var parentInsertStmt = 'INSERT INTO Parents (FirstName,LastName, city,state,billingAddress1, billingAddress2, stripe_number, emailAddress, password)';
-    parentInsertStmt+= 'Values(@firstName, @lastName, @city, @state, @billingAddress1, @billingAddress2, @stripe_number, @emailAddress, @password)';
+    parentInsertStmt+= 'Values(@firstName, @lastName, @city, @state, @billingAddress1, @billingAddress2, @stripe_number, @emailAddress, @password) SELECT SCOPE_IDENTITY() as id';
     await ps.prepare(parentInsertStmt);
 
 
@@ -28,7 +28,7 @@ exports.submitRegistrationForm = async data =>{
 
     var hashedPassword = await bcrypt.hash(data.password1,10);
 
-    console.log('the hashed password is ',hashedPassword);
+
 
     var parentObj = {
         firstName:data.firstName,
@@ -45,16 +45,20 @@ exports.submitRegistrationForm = async data =>{
 
     const res = await ps.execute(parentObj);
 
+    var insertedParentID = res.recordset[0].id;
     console.log('the result of the insert parent object is ',res);
+    console.log('the inserted id of the parent object is ',insertedParentID);
     await ps.unprepare();
 
     console.log('the student data is ',data.students);
     for(var i=0; i<data.students.length; i++){
 
+
+
         console.log('the student loop is running');
         var student = data.students[i];
         var ps2 = new sql.PreparedStatement(pool);
-        ps2.input('ParentID',sql.Int);
+        ps2.input('parentID',sql.Int);
         ps2.input('firstName',sql.VarChar);
         ps2.input('lastName',sql.VarChar);
         ps2.input('city',sql.VarChar);
@@ -66,12 +70,12 @@ exports.submitRegistrationForm = async data =>{
 
         var hash = await bcrypt.hash(student.studentPassword,10);
 
-        var studentInsertStmt = 'INSERT INTO Students (ParentID,firstName,lastName,city,state,username,password,dateOfBirth,grade)';
-        studentInsertStmt+= 'Values(@parentID, @firstName, @lastName, @city,@state,@username, @password, @dateOfBirth, @grade)';
+        var studentInsertStmt = 'INSERT INTO Students (parentID,firstName,lastName,city,state,username,password,dateOfBirth,grade)';
+        studentInsertStmt+= 'Values(@parentID, @firstName, @lastName, @city,@state,@username, @password, @dateOfBirth, @grade) SELECT SCOPE_IDENTITY() as id ';
         await ps2.prepare(studentInsertStmt);
 
         var studentObj = {
-            parentID:'abc',
+            parentID:insertedParentID,
             firstName:student.studentFirstName,
             lastName: student.studentLastName,
             city: data.city,
@@ -84,8 +88,53 @@ exports.submitRegistrationForm = async data =>{
 
         var result = await ps2.execute(studentObj);
         console.log('the result of the insert student statement was ',result);
+        var insertedStudentID = result.recordset[0].id;
 
         await ps2.unprepare();
+
+        var studentCourses = data.studentCourses[i];
+        var math = studentCourses.math;
+        var science = studentCourses.science;
+        var english = studentCourses.english;
+        var socialStudies = studentCourses.socialStudies;
+        var elective = studentCourses.elective;
+
+
+
+        Object.keys(studentCourses).forEach( async function(key,index) {
+
+            var course = studentCourses[key];
+            console.log(course);
+
+            console.log('key is',key);
+            var ps3 = new sql.PreparedStatement(pool);
+            ps3.input('parentID',sql.Int);
+            ps3.input('studentID',sql.Int);
+            ps3.input('courseCategory',sql.VarChar);
+            ps3.input('courseName',sql.VarChar);
+
+            var studentCoursesInsertStmt = 'INSERT INTO StudentCourses (parentID,studentID,courseCategory,courseName)';
+            studentCoursesInsertStmt+= 'Values(@parentID,@studentID, @courseCategory,@courseName)';
+
+            await ps3.prepare(studentCoursesInsertStmt);
+            var insertObj;
+
+               insertObj ={
+                   parentID:insertedParentID,
+                   studentID:insertedStudentID,
+                   courseCategory:key,
+                   courseName:course
+               }
+
+             var response =  await ps3.execute(insertObj);
+
+               console.log('the result of the courses insert is ',response);
+               await ps3.unprepare();
+
+        });
+
+
+
     }
     //insert student(s) data into student table
 
@@ -96,37 +145,6 @@ exports.submitRegistrationForm = async data =>{
 
 exports.addParent = async parentInfo =>{
 
-    console.log('the info in the data layer is ',parentInfo);
 
-      var firstName = ''+parentInfo.firstName;
-      var lastName  =  ''+parentInfo.lastName;
-      var emailAddress = ''+parentInfo.emailAddress;
-      var city = ''+parentInfo.city;
-      var state = ''+parentInfo.state;
-      var address1 = ''+parentInfo.address1;
-      var address2 = ''+parentInfo.address2;
-      var creditCardNumber = ''+parentInfo.creditCardNumber;
-      var expirationDate = ''+parentInfo.expirationDate;
-      var securityCode = ''+parentInfo.securityCode;
-      var password = ''+parentInfo.password;
-
-
-
-    var insertQuery = "INSERT INTO Parents (firstName, lastName, emailAddress,city,state,address1,address2,creditCardNumber,expirationDate,securityCode, password)";
-    insertQuery += "VALUES('"+ firstName+"','"+ lastName+"','" +emailAddress+"','" +city+"','" +state+"','"+ address1+"','"
-        +address2+"','" +creditCardNumber+"','"+expirationDate+"','"+ securityCode+"','"+password+"')";
-
-    console.log("The insert query is ",insertQuery);
-    try {
-        const pool = await poolPromise
-        const result = await pool.request()
-            .query(insertQuery);
-        console.log(result);
-        return result;
-    } catch (err) {
-        console.log('there was an error');
-        console.log(err);
-        return(err);
-    }
 
 }

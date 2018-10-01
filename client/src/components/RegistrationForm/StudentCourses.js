@@ -40,6 +40,10 @@ class StudentCourses extends Component {
     }
     saveAndContinue (e){
         e.preventDefault();
+
+        var coursesObj ={
+            'studentCourses':[]
+        }
         var data={
             'student1Math':this.state.student1Math,
             'student1Science':this.state.student1Science,
@@ -55,7 +59,26 @@ class StudentCourses extends Component {
             'student2Elective':this.state.student2Elective
         }
 
-        this.props.saveValues(data);
+        var student1Courses ={
+            'math':this.state.student1Math,
+            'science':this.state.student1Science,
+            'english':this.state.student1English,
+            'socialStudies':this.state.student1SocialStudies,
+            'elective':this.state.student1Elective
+        }
+
+        var student2Courses = {
+            'math':this.state.student2Math,
+            'science':this.state.student2Science,
+            'english':this.state.student2English,
+            'socialStudies':this.state.student2SocialStudies,
+            'elective':this.state.student2Elective
+        }
+
+        coursesObj.studentCourses.push(student1Courses);
+        coursesObj.studentCourses.push(student2Courses);
+
+        this.props.saveValues(coursesObj);
         this.props.nextStep();
     }
 

@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="82eeb87b-0ae9-44de-bc10-3efee4f29b6c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/RegistrationForm/Registration.js" afterPath="$PROJECT_DIR$/client/src/components/RegistrationForm/Registration.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/RegistrationForm/StudentCourses.js" afterPath="$PROJECT_DIR$/client/src/components/RegistrationForm/StudentCourses.js" />
       <change beforePath="$PROJECT_DIR$/client/src/components/RegistrationForm/StudentInfo.js" afterPath="$PROJECT_DIR$/client/src/components/RegistrationForm/StudentInfo.js" />
-      <change beforePath="$PROJECT_DIR$/nodeApi/api/registration.js" afterPath="$PROJECT_DIR$/nodeApi/api/registration.js" />
-      <change beforePath="$PROJECT_DIR$/nodeApi/controllers/registration.js" afterPath="$PROJECT_DIR$/nodeApi/controllers/registration.js" />
       <change beforePath="$PROJECT_DIR$/nodeApi/data-access/registration.js" afterPath="$PROJECT_DIR$/nodeApi/data-access/registration.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -44,8 +42,8 @@
       <file leaf-file-name="registration.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nodeApi/data-access/registration.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="64" column="39" lean-forward="true" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
+            <state relative-caret-position="1280">
+              <caret line="92" column="30" lean-forward="true" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -84,7 +82,7 @@
       <file leaf-file-name="Registration.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/RegistrationForm/Registration.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2480">
+            <state relative-caret-position="320">
               <caret line="62" column="25" lean-forward="true" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -96,8 +94,8 @@
       <file leaf-file-name="StudentCourses.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/RegistrationForm/StudentCourses.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1644">
-              <caret line="121" column="19" lean-forward="false" selection-start-line="121" selection-start-column="19" selection-end-line="127" selection-end-column="29" />
+            <state relative-caret-position="1497">
+              <caret line="80" column="40" lean-forward="false" selection-start-line="80" selection-start-column="40" selection-end-line="80" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -116,8 +114,8 @@
       <file leaf-file-name="StudentInfo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/RegistrationForm/StudentInfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1737">
-              <caret line="147" column="24" lean-forward="false" selection-start-line="147" selection-start-column="24" selection-end-line="147" selection-end-column="24" />
+            <state relative-caret-position="4720">
+              <caret line="145" column="177" lean-forward="false" selection-start-line="145" selection-start-column="177" selection-end-line="145" selection-end-column="177" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -165,7 +163,6 @@
         <option value="$PROJECT_DIR$/client/src/components/RegistrationForm/FormPart1.js" />
         <option value="$PROJECT_DIR$/dbUtil.js" />
         <option value="$PROJECT_DIR$/client/src/components/RegistrationForm/RegistrationForm.css" />
-        <option value="$PROJECT_DIR$/client/src/components/RegistrationForm/StudentCourses.js" />
         <option value="$PROJECT_DIR$/client/src/components/RegistrationForm/BasicInfo.js" />
         <option value="$PROJECT_DIR$/client/src/components/RegistrationForm/BillingInfo.js" />
         <option value="$PROJECT_DIR$/server.js" />
@@ -173,6 +170,7 @@
         <option value="$PROJECT_DIR$/nodeApi/controllers/registration.js" />
         <option value="$PROJECT_DIR$/client/src/components/RegistrationForm/Registration.js" />
         <option value="$PROJECT_DIR$/client/src/components/RegistrationForm/StudentInfo.js" />
+        <option value="$PROJECT_DIR$/client/src/components/RegistrationForm/StudentCourses.js" />
         <option value="$PROJECT_DIR$/nodeApi/data-access/registration.js" />
       </list>
     </option>
@@ -188,10 +186,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="6384" />
-    <option name="y" value="-16" />
-    <option name="width" value="3872" />
-    <option name="height" value="2064" />
+    <option name="x" value="7126" />
+    <option name="y" value="517" />
+    <option name="width" value="1920" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -390,12 +388,12 @@
       <workItem from="1538101226315" duration="2173000" />
       <workItem from="1538143989712" duration="970000" />
       <workItem from="1538149556744" duration="38000" />
-      <workItem from="1538230971320" duration="13657000" />
+      <workItem from="1538230971320" duration="28406000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143928000" />
+    <option name="totallyTimeSpent" value="158677000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="6384" y="-16" width="3872" height="2192" extended-state="6" />
@@ -702,7 +700,7 @@
         <state relative-caret-position="200">
           <caret line="50" column="36" lean-forward="true" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -727,14 +725,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/RegistrationForm/StudentCourses.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1644">
-          <caret line="121" column="19" lean-forward="false" selection-start-line="121" selection-start-column="19" selection-end-line="127" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -765,7 +755,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/RegistrationForm/Registration.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2480">
+        <state relative-caret-position="320">
           <caret line="62" column="25" lean-forward="true" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -775,18 +765,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/RegistrationForm/StudentInfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1737">
-          <caret line="147" column="24" lean-forward="false" selection-start-line="147" selection-start-column="24" selection-end-line="147" selection-end-column="24" />
+        <state relative-caret-position="4720">
+          <caret line="145" column="177" lean-forward="false" selection-start-line="145" selection-start-column="177" selection-end-line="145" selection-end-column="177" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/RegistrationForm/StudentCourses.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1497">
+          <caret line="80" column="40" lean-forward="false" selection-start-line="80" selection-start-column="40" selection-end-line="80" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nodeApi/data-access/registration.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="64" column="39" lean-forward="true" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
+        <state relative-caret-position="1280">
+          <caret line="92" column="30" lean-forward="true" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
           <folding />
         </state>
       </provider>
