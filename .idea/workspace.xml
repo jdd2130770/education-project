@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82eeb87b-0ae9-44de-bc10-3efee4f29b6c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/components/pages/RegistrationPage.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/components/pages/RegistrationPage.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/RegistrationForm/BasicInfo.js" afterPath="$PROJECT_DIR$/client/src/components/RegistrationForm/BasicInfo.js" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.js" afterPath="$PROJECT_DIR$/client/src/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/RegistrationForm/RegistrationForm.css" afterPath="$PROJECT_DIR$/client/src/components/RegistrationForm/RegistrationForm.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,16 +16,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="750">
-      <file leaf-file-name="registration.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nodeApi/api/registration.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="registration.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nodeApi/data-access/registration.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -98,11 +84,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BasicInfo.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BasicInfo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/RegistrationForm/BasicInfo.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="600">
               <caret line="46" column="42" lean-forward="false" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegistrationForm.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/components/RegistrationForm/RegistrationForm.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1080">
+              <caret line="27" column="22" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -168,7 +164,6 @@
         <option value="$PROJECT_DIR$/client/src/components/RegistrationForm/FormPart3.js" />
         <option value="$PROJECT_DIR$/client/src/components/RegistrationForm/FormPart1.js" />
         <option value="$PROJECT_DIR$/dbUtil.js" />
-        <option value="$PROJECT_DIR$/client/src/components/RegistrationForm/RegistrationForm.css" />
         <option value="$PROJECT_DIR$/client/src/components/RegistrationForm/BillingInfo.js" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/nodeApi/api/registration.js" />
@@ -182,6 +177,7 @@
         <option value="$PROJECT_DIR$/client/src/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/pages/RegistrationPage.css" />
         <option value="$PROJECT_DIR$/client/src/components/RegistrationForm/BasicInfo.js" />
+        <option value="$PROJECT_DIR$/client/src/components/RegistrationForm/RegistrationForm.css" />
       </list>
     </option>
   </component>
@@ -407,12 +403,12 @@
       <workItem from="1538101226315" duration="2173000" />
       <workItem from="1538143989712" duration="970000" />
       <workItem from="1538149556744" duration="38000" />
-      <workItem from="1538230971320" duration="30605000" />
+      <workItem from="1538230971320" duration="30711000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160876000" />
+    <option name="totallyTimeSpent" value="160982000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="6384" y="-16" width="3872" height="2192" extended-state="6" />
@@ -653,13 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/RegistrationForm/RegistrationForm.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/RegistrationForm/validationRules.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2080">
@@ -812,6 +801,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="46" column="42" lean-forward="false" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/RegistrationForm/RegistrationForm.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="27" column="22" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
           <folding />
         </state>
       </provider>
