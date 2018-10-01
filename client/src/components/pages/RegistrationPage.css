@@ -1,0 +1,15 @@
+.registrationPage {
+  background-color:#003399;
+  width:100%;
+  padding-top:30px;
+  padding-bottom:30px;
+}
+
+.registrationPage .mainContent{
+  max-width:550px;
+  border-radius:6px;
+  margin-left:auto;
+  margin-right:auto;
+  background-color:white;
+  padding:20px;
+}

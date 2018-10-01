@@ -44,7 +44,7 @@ class BasicInfo extends Component {
     render() {
         return (
             <div>
-
+                <h3>Registration Form</h3>
               <div class="form-group">
                 <label htmlFor="firstName">Parent First Name</label>
                 <input type="text"  className="form-control"  value ={this.state.firstName}  id="firstName" onChange={this.handleInputChange}aria-describedby="emailHelp" placeholder="Enter first name"/>
