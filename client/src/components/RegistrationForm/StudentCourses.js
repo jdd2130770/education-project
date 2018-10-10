@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './RegistrationForm.css';
+import FormValidator from "../../validation/validation_class";
 
 class StudentCourses extends Component {
 
@@ -44,6 +45,7 @@ class StudentCourses extends Component {
         var coursesObj ={
             'studentCourses':[]
         }
+
         var data={
             'student1Math':this.state.student1Math,
             'student1Science':this.state.student1Science,
@@ -227,6 +229,8 @@ class StudentCourses extends Component {
             </div>
         );
     }
+
+
 }
 
 export default StudentCourses;
