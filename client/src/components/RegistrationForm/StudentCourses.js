@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './RegistrationForm.css';
+import validator from 'validator';
 import FormValidator from "../../validation/validation_class";
 
 class StudentCourses extends Component {
@@ -10,6 +11,8 @@ class StudentCourses extends Component {
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.saveAndContinue = this.saveAndContinue.bind(this);
+        this.getValidationRules = this.getValidationRules.bind(this);
+
         this.state = {
            'showStudent2':false,
             'student1Math':'',
@@ -31,8 +34,15 @@ class StudentCourses extends Component {
 
     componentDidMount() {
 
-        if(this.props.fieldValues.student2FirstName !==''){
-            this.setState({'showStudent2':true})
+        //check to see if second student has a name
+        var name = this.props.fieldValues.students[1].studentFirstName
+        if(name !==''){
+            console.log('there is a second student with name ',name);
+            this.setState({'showStudent2':true});
+        }
+        else{
+            console.log('there is not second student');
+            this.setState({'showStudent2':false});
         }
     }
 
@@ -46,20 +56,7 @@ class StudentCourses extends Component {
             'studentCourses':[]
         }
 
-        var data={
-            'student1Math':this.state.student1Math,
-            'student1Science':this.state.student1Science,
-            'student1English':this.state.student1English,
-            'student1SocialStudies':this.state.student1SocialStudies,
-            'student1English':this.state.student1English,
-            'student1Elective':this.state.student1Elective,
-            'student2Math':this.state.student2Math,
-            'student2English':this.state.student2English,
-            'student2Math':this.state.student2Math,
-            'student2Science':this.state.student2Science,
-            'student2SocialStudies':this.state.student2SocialStudies,
-            'student2Elective':this.state.student2Elective
-        }
+
 
         var student1Courses ={
             'math':this.state.student1Math,
@@ -80,8 +77,47 @@ class StudentCourses extends Component {
         coursesObj.studentCourses.push(student1Courses);
         coursesObj.studentCourses.push(student2Courses);
 
-        this.props.saveValues(coursesObj);
-        this.props.nextStep();
+        var student1ValidationRules = this.getValidationRules(1);
+        var student2ValidationRules = this.getValidationRules(2);
+
+        var student1Validator = new FormValidator(student1ValidationRules);
+        var student1Validation = student1Validator.validate(this.state);
+
+        var student2Validator = new FormValidator(student2ValidationRules);
+        var student2Validation = student2Validator.validate(this.state);
+
+        //if there is no 2nd student, automatically set the validation to true
+
+        if(this.state.showStudent2==false){
+            student2Validation.isValid = true;
+        }
+
+        if(student1Validation.isValid && student2Validation.isValid){
+            this.props.saveValues(coursesObj);
+            this.props.nextStep();
+        }
+
+        else {
+
+            var params = this.state;
+            for(var field in params){
+                console.log('the field is ',field);
+                var fieldErrorLabel = field + 'ErrorMessage';
+
+                if(student1Validation[field]){
+                    this.setState({
+                        [fieldErrorLabel] : student1Validation[field].message
+                    });
+                }
+
+                if(student2Validation[field]){
+                    this.setState({
+                        [fieldErrorLabel] : student2Validation[field].message
+                    });
+                }
+            }
+        }
+
     }
 
 
@@ -103,7 +139,7 @@ class StudentCourses extends Component {
                          <option>Calculus I</option>
                          <option>Calculus II</option>
                      </select>
-                    <span className="formErrors">{this.state.firstNameErrorMessage}</span>
+                    <span className="formErrors">{this.state.student1MathErrorMessage}</span>
                 </div>
 
                 <div class="form-group">
@@ -115,7 +151,7 @@ class StudentCourses extends Component {
                         <option>Chemistry</option>
                         <option>Astronomy</option>
                     </select>
-                    <span className="formErrors">{this.state.firstNameErrorMessage}</span>
+                    <span className="formErrors">{this.state.student1ScienceErrorMessage}</span>
                 </div>
 
                 <div class="form-group">
@@ -127,7 +163,7 @@ class StudentCourses extends Component {
                         <option>Contemporary African Americans of Distinction</option>
                         <option>World History</option>
                     </select>
-                    <span className="formErrors">{this.state.firstNameErrorMessage}</span>
+                    <span className="formErrors">{this.state.student1SocialStudiesErrorMessage}</span>
                 </div>
 
                 <div class="form-group">
@@ -139,7 +175,7 @@ class StudentCourses extends Component {
                        <option>11th Grade English </option>
                        <option>12th Grade English</option>
                     </select>
-                    <span className="formErrors">{this.state.firstNameErrorMessage}</span>
+                    <span className="formErrors">{this.state.student1EnglishErrorMessage}</span>
                 </div>
 
                 <div class="form-group">
@@ -151,7 +187,7 @@ class StudentCourses extends Component {
                         <option>African American Literature</option>
                         <option>Stock Market Investing</option>
                     </select>
-                    <span className="formErrors">{this.state.firstNameErrorMessage}</span>
+                    <span className="formErrors">{this.state.student1ElectiveErrorMessage}</span>
                   </div>
 
                 </div>
@@ -171,7 +207,7 @@ class StudentCourses extends Component {
                             <option>Calculus I</option>
                             <option>Calculus II</option>
                         </select>
-                        <span className="formErrors">{this.state.firstNameErrorMessage}</span>
+                        <span className="formErrors">{this.state.student2MathErrorMessage}</span>
                     </div>
 
                     <div class="form-group">
@@ -183,7 +219,7 @@ class StudentCourses extends Component {
                             <option>Chemistry</option>
                             <option>Astronomy</option>
                         </select>
-                        <span className="formErrors">{this.state.firstNameErrorMessage}</span>
+                        <span className="formErrors">{this.state.student2ScienceErrorMessage}</span>
                     </div>
 
                     <div class="form-group">
@@ -195,7 +231,7 @@ class StudentCourses extends Component {
                             <option>Contemporary African Americans of Distinction</option>
                             <option>World History</option>
                         </select>
-                        <span className="formErrors">{this.state.firstNameErrorMessage}</span>
+                        <span className="formErrors">{this.state.student2SocialStudiesErrorMessage}</span>
                     </div>
 
                     <div class="form-group">
@@ -207,7 +243,7 @@ class StudentCourses extends Component {
                             <option>11th Grade English </option>
                             <option>12th Grade English</option>
                         </select>
-                        <span className="formErrors">{this.state.firstNameErrorMessage}</span>
+                        <span className="formErrors">{this.state.student2EnglishErrorMessage}</span>
                     </div>
 
                     <div class="form-group">
@@ -219,7 +255,7 @@ class StudentCourses extends Component {
                             <option>African American Literature</option>
                             <option>Stock Market Investing</option>
                         </select>
-                        <span className="formErrors">{this.state.firstNameErrorMessage}</span>
+                        <span className="formErrors">{this.state.student2ElectiveErrorMessage}</span>
                     </div>
 
 
@@ -229,6 +265,52 @@ class StudentCourses extends Component {
             </div>
         );
     }
+
+    getValidationRules(studentNum){
+
+
+        var mathField = 'student'+studentNum+'Math';
+        var scienceField = 'student'+studentNum+'Science';
+        var englishField = 'student'+studentNum+'English';
+        var socialStudiesField = 'student'+studentNum+'SocialStudies';
+        var electiveField = 'student'+studentNum+'Elective';
+
+        var validationRules = [
+            {
+                field:mathField,
+                method:validator.isEmpty,
+                validWhen:false,
+                message:'Field required'
+            },
+            {
+                field:scienceField,
+                method:validator.isEmpty,
+                validWhen:false,
+                message:'Field required'
+            },
+            {
+                field:englishField,
+                method:validator.isEmpty,
+                validWhen:false,
+                message:'Field required'
+            },
+            {
+                field:socialStudiesField,
+                method:validator.isEmpty,
+                validWhen:false,
+                message:'Field required'
+            },
+            {
+                field:electiveField,
+                method:validator.isEmpty,
+                validWhen:false,
+                message:'Field required'
+            }
+        ];
+
+        return validationRules;
+    }
+
 
 
 }

@@ -11,9 +11,14 @@
   margin-bottom:25px;
 }
 .formErrors{
+  margin-top:5px;
   font-size:9pt;
   color:red;
   position:absolute;
+}
+
+.registrationPage button{
+    margin-top:10px;
 }
 
 .formSubmitBtn{
