@@ -1,4 +1,12 @@
 # Node.js
+- task: AzurePowerShell@5
+  inputs:
+    ScriptType: 'InlineScript'
+    Inline: |
+      # You can write your azure powershell scripts inline here. 
+      # You can also pass predefined and custom variables to this script using arguments
+      
+      curl -u "$ACUNETIXUSERID:$ACUNETIXAPITOKEN" -X POST https://online.acunetix360.com/api/1.0/scans/CreateFromPluginScanRequest -H "Content-Type: application/json" -d "{'WebsiteId': '0a876e8a-2f4b-4ba9-2a4c-ab6f01fe4adf', 'ScanType': 'FullWithPrimaryProfile', 'VcsCommitInfoModel': { 'CiBuildConfigurationName' : '$BUILD_DEFINITIONNAME', 'CiBuildHasChange': '$BUILD_SOURCEVERSION', 'CiBuildId': '$BUILD_BUILDID', 'CiBuildUrl': '$SYSTEM_TEAMFOUNDATIONCOLLECTIONURI', 'Committer': '$BUILD_REQUESTEDFOREMAIL', 'IntegrationSystem': 'AzureDevOps', 'VcsName': '$BUILD_REPOSITORY_PROVIDER', 'VcsVersion': '$BUILD_SOURCEVERSION' }}"
 # Build a general Node.js project with npm.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
